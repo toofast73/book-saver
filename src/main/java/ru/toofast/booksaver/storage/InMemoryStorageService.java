@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 @Repository
-public class InMemoryStorageService implements StorageService{
+public class InMemoryStorageService implements StorageService {
 
     ConcurrentHashMap<String, Resource> storage = new ConcurrentHashMap<>();
 
@@ -31,9 +31,9 @@ public class InMemoryStorageService implements StorageService{
 
     @Override
     public Resource loadAsResource(String filename) {
-        if(storage.containsKey(filename)) {
+        if (storage.containsKey(filename)) {
             return storage.get(filename);
-        }else {
+        } else {
             throw new StorageFileNotFoundException(filename);
         }
     }
